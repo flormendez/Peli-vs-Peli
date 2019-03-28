@@ -1,6 +1,6 @@
 // Esta es la ip y puerto en que necesitamos que esté el backend disponible
 // var server = 'http://0.0.0.0:8080';
-var server = "http://llocalhost:8080";
+var server = "http://localhost:8080";
 
 function CompetenciasController() {
   // Esta método obtiene y carga todas las competencias existentes
