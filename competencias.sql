@@ -22,3 +22,4 @@ VALUES
     (5, 'Cual es la mejor peli con Brad Pitt?', NULL, 227, NULL),
     (6, 'Cual es la mejor peli de David Lynch?', NULL, NULL, 3528);
 UNLOCK TABLES;
+

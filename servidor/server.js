@@ -3,7 +3,7 @@ var cors = require("cors");
 var bodyParser = require("body-parser");
 var dotenv = require("dotenv").config();
 console.log(dotenv);
-var controlador = require("./controller.js");
+var controller = require("./controller.js");
 
 var app = express();
 app.use(cors());
@@ -14,7 +14,11 @@ app.use(
 );
 app.use(bodyParser.json());
 
-app.get("/competencias", controlador.obtenerCompetencias);
+app.get("/competencias", controller.obtenerCompetencias);
+app.get("/competencias/:id/peliculas", function(req, res) {
+  var id = req.params.id;
+  controller.obtenerOpciones(id, res);
+});
 
 var puerto = "8080";
 
