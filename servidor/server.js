@@ -1,9 +1,9 @@
 var express = require("express");
 var cors = require("cors");
 var bodyParser = require("body-parser");
-var controller = require("./controller.js");
 var dotenv = require("dotenv").config();
 console.log(dotenv);
+var controller = require("./controller.js");
 
 var app = express();
 app.use(cors());

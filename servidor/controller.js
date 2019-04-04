@@ -1,11 +1,12 @@
 var conDb = require("./conexion_db.js");
 
 function obtenerCompetencias(req, res) {
-  var sql = "select id, nombre from competencias";
-  conDb.query(sql, function(error, resp) {
+  var sqlQuery = "select id, nombre from competencias";
+  conDb.query(sqlQuery, function(error, resp) {
     res.send(resp);
   });
 }
+
 
 function armarConsulta(data) {
   var sql =
