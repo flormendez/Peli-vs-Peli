@@ -16,10 +16,25 @@ LOCK TABLES `competencias` WRITE;
 INSERT INTO `competencias`
 VALUES
     (1, 'Cual es tu película favorita?', NULL, NULL, NULL),
-    (2, 'Cual es la mejor peli de Fincher?', NULL, NULL, 3758),
+    (2, 'Cual es la mejor peli de Steven Spielberg', NULL, NULL, 3364),
     (3, 'Cual es la mejor peli de terror? ', 10, NULL, NULL),
-    (4, 'Cual es la mejor peli con Clint Eastwood?', NULL, 362, NULL),
+    (4, 'Cual es la mejor peli animada?', 3, NULL, NULL),
     (5, 'Cual es la mejor peli con Brad Pitt?', NULL, 227, NULL),
-    (6, 'Cual es la mejor peli de David Lynch?', NULL, NULL, 3528);
+    (6, 'Cual es la mejor peli de Ciencia Ficción?', 13, NULL, NULL);
 UNLOCK TABLES;
+
+
+USE `competencias`;
+
+DROP TABLE IF EXISTS `votos_pelicula`;
+
+CREATE TABLE `votos_pelicula`
+(
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `competencia_id` int(11) NOT NULL,
+  `pelicula_id` int(11) NOT NULL,
+  PRIMARY KEY(`id`)
+)  ENGINE=InnoDB DEFAULT CHARSET=UTF8;
+
+
 
