@@ -57,9 +57,7 @@ function obtenerOpciones(id, res) {
 
 function votar(req, res) {
   var competenciaId = req.params.id;
-  console.log(req.params.id);
   var peliculaId = req.body.idPelicula;
-  console.log(peliculaId);
   var existePeli = "SELECT * FROM pelicula where id =" + peliculaId + ";";
   conDb.query(existePeli, function(error, respuesta) {
     if (respuesta) {
@@ -75,7 +73,6 @@ function votar(req, res) {
             ";";
           console.log(sqlVoto);
           conDb.query(sqlVoto, function(error, respSqlVoto) {
-            console.log(respSqlVoto);
             if (respSqlVoto.length > 0) {
               var sql =
                 "UPDATE votos_pelicula SET cantidad = cantidad +1 where competencia_id=" +
@@ -119,7 +116,6 @@ function obtenerResultados(id, res) {
         "SELECT p.id as pelicula_id, titulo, poster, cantidad as votos FROM votos_pelicula vot JOIN pelicula p ON vot.pelicula_id = p.id JOIN competencias c ON vot.competencia_id=c.id WHERE c.id=" +
         id +
         " order by cantidad DESC LIMIT 3;";
-      console.log(sql);
       conDb.query(sql, function(error, resp) {
         if (error) {
           return res.status(500);
@@ -242,7 +238,7 @@ function obtenerGeneros(req, res) {
 }
 function obtenerDirectores(req, res) {
   sql =
-    "SELECT dp.director_id as id, p.director as nombre FROM pelicula p JOIN director_pelicula dp ON dp.pelicula_id = p.id ORDER BY nombre;";
+    "SELECT id, nombre FROM director ORDER BY nombre;";
   conDb.query(sql, function(error, resp) {
     if (error) {
       return res.status(500);
